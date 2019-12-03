@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC  
+          "-//Hibernate/Hibernate Configuration DTD 5.3//EN"  
+          "http://hibernate.sourceforge.net/hibernate-configuration-5.3.dtd">
+<hibernate-configuration>
+<session-factory>
+<!-- We can use property either with hibernate.<proertyname> or directly property name -->
+<property name="hibernate.connection.username">root</property>
+<property name="hibernate.connection.password">root</property>
+<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/myhibernate</property>
+<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+<property name="hibernate.hbm2ddl.auto">create</property>
+<!-- 
+hbm2ddl.auto:create,update,validate,create-drop
+create :will create new tables,each time old data will be deleted
+update:will update the tables and keep old data if table not exist it will create new table if column not exist it will create new column
+validate:keep old table and validate only if table or column exist or not if not exist exception no new table creation
+Validate is default value
+create-drop:when session factory will closed table would be dropped
+Not Recommended in production
+ -->
+<property name="hibernate.show_sql">true</property>
+<property name="hibernate.dialect">org.hibernate.dialect.MySQL55Dialect</property>
+
+
+<!-- <property name="connection.username">root</property>
+<property name="connection.password">root</property>
+<property name="connection.url">jdbc:mysql://localhost:3306/myhibernate</property>
+<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+<property name="hbm2ddl.auto">create</property>
+<property name="show_sql">true</property>
+<property name="dialect">org.hibernate.dialect.MySQL55Dialect</property> -->
+
+<!-- Require for mapping classess or resources -->
+<mapping class="com.vivek.myhibernate.entity.UserDetails"></mapping>
+<mapping class="com.vivek.myhibernate.entity.UserDetails2"></mapping>
+
+
+</session-factory>
+
+</hibernate-configuration>          
